@@ -20,7 +20,7 @@ pipeline{
         stage('Build Docker image'){
             steps {
 
-                sh 'docker build -t  615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin .'
+                sh 'docker build -t  615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:1.0.0 .'
             }
         }
 
