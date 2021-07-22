@@ -19,8 +19,8 @@ pipeline{
 
         stage('Build Docker image'){
             steps {
-
-                sh 'docker build -t  615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:1.0.0 .'
+                sh 'docker build -t jenkin .'
+                sh 'docker tag jenkin:latest 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:latest'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline{
             steps {
                 script{
                     sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 615372917774.dkr.ecr.ap-south-1.amazonaws.com'
-                    sh 'docker push 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:1.0.0'
+                    sh 'docker push 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:latest'
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline{
         stage('Docker Run') {
             steps{
                 script {
-                    sh 'docker run -p 8082:8080 --rm --name myContainer 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:1.0.0'
+                    sh 'docker run -p 8082:8080 --rm --name myContainer 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:latest'
                 }
             }
         }
