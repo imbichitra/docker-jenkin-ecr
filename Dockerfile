@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/docker-jenkins-ecr.jar docker-jenkins-ecr
+ADD target/bichi-image.jar bichi-image.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","docker-jenkins-ecr.jar"]
+ENTRYPOINT ["java","-jar","bichi-image.jar"]

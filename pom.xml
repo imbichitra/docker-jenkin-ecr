@@ -36,7 +36,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>docker-jenkins-ecr</finalName>
+		<finalName>bichi-image</finalName>
 	</build>
 
 </project>
