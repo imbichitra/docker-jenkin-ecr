@@ -44,7 +44,7 @@ pipeline{
         stage('Docker Run') {
             steps{
                 script {
-                    sh 'docker run -d -p 8082:8080 --rm --name myContainer 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:1.0.0'
+                    sh 'docker run -p 8082:8080 --rm --name myContainer 615372917774.dkr.ecr.ap-south-1.amazonaws.com/jenkin:1.0.0'
                 }
             }
         }
